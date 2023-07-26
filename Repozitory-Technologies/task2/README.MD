@@ -56,6 +56,7 @@ $ sudo docker run -p 3000 node-app
 
 
 Note:
+
 ubuntu v22.04 ami is used in ec2 instance in aws console
 
 Nodejs files that are used in this task are downloaded by surfing through internet. Those files are not coded by me.
