@@ -39,3 +39,6 @@ Note:
 1.for s3 region please use “us-west-2” in region section.
 
 2.Index.html is created in a simple way by me
+
+3.ubuntu v22.04 ami is used in ec2 instance in aws console
+
