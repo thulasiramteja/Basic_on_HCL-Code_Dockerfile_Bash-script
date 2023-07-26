@@ -23,8 +23,11 @@ Because the key is downloaded only once. It cannot be downloaded more than one t
 3.use commands for deploying in VScode in command prompt or powershell
 
 $ terraform init
+
 $ terraform plan
+
 $ terraform apply –auto-approve
+
 $ terraform destroy –auto-approve
 
 4.output is seen in text format from index.html file and copy and paste the public ip address of machine
