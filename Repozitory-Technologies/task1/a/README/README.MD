@@ -37,3 +37,6 @@ Ex For cloud services use public Ip
 
 
 Note: the public Ip is assigned by elastic IP. Here, “EIP one” is used in the code. if public IP assign is not assign by the code in cloud please check the Elastic IP section and kindly delete the EIP if present and deploy the code again. The Public ip can be attached
+
+ubuntu v22.04 ami is used in ec2 instance in aws console
+
