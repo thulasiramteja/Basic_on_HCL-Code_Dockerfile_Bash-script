@@ -1,0 +1,30 @@
+FROM node:14
+
+ARG AWS_ACCESS_KEY
+ARG AWS_SECRET_KEY
+ARG S3_BUCKET
+ARG S3_REGION
+
+ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY}
+ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_KEY}
+ENV S3_BUCKET=${S3_BUCKET}
+ENV S3_REGION=${S3_REGION}
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y unzip
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip && ./aws/install
+
+RUN aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+RUN aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+RUN aws configure set default.region ${S3_REGION}
+RUN aws s3 cp s3://r-technologies/nodejs_files/index.js .
+RUN aws s3 cp s3://r-technologies/nodejs_files/package.json .
+RUN aws s3 cp s3://r-technologies/nodejs_files/package-lock.json .
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]

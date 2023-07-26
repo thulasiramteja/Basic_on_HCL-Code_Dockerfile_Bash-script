@@ -1,0 +1,4 @@
+
+sudo docker build -t node-app --build-arg AWS_ACCESS_KEY="enter access key" --build-arg AWS_SECRET_KEY="enter secret key" --build-arg S3_BUCKET="enter bucket arn " --build-arg S3_REGION=us-west-2 .
+
+sudo docker run -p 3000 node-app

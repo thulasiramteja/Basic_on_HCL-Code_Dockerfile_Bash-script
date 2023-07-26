@@ -1,0 +1,21 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install awscli -y
+
+
+# Replace these with your AWS account keys
+AWS_ACCESS_KEY_ID="enter the access key"
+AWS_SECRET_ACCESS_KEY="enter the secret key"
+
+
+aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+aws configure set default.region us-west-2
+
+aws s3  cp s3://dockers3bash/index.html /home/ubuntu/test
+
+sudo cp /home/ubuntu/test/index.html /usr/share/nginx/html
+
+sudo apt-get install docker.io -y
+
+sudo docker run -d -p 8080:80 -v ${PWD}:/usr/share/nginx/html nginx
